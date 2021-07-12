@@ -1,0 +1,17 @@
+.main-header {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+  background-color: var(--clr-light-grayishcyan-a);
+
+  h1 {
+    letter-spacing: 10px;
+    color: var(--clr-darckcyan);
+
+    > span {
+      display: block;
+    }
+  }
+}

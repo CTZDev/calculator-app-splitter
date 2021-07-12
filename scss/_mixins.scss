@@ -1,0 +1,25 @@
+//Mixin de inputs - default position before
+@mixin inputNumber {
+  color: var(--clr-darckcyan);
+  font-size: var(--font-normal);
+  font-weight: bold;
+  font-family: var(--font-family);
+  width: 100%;
+  max-width: 100%;
+  background-color: #f3f8fb;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  text-align: right;
+}
+
+@mixin tip {
+}
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

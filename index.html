@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>Spli<span>tter</span></h1>
+    </header>
+    <main>
+      <section class="calculator">
+        <div class="calculator-inputs mb-default">
+          <div class="calculator-header mb-default">
+            <h2 class="u-title">Bill</h2>
+            <div class="calculator-control flex flex-ai-c">
+              <img src="./images/icon-dollar.svg" alt="Dollar" />
+              <input type="number" name="txtbill" id="txtbill" />
+            </div>
+          </div>
+          <div class="calculator-percentage mb-default">
+            <h2 class="u-title">Select Tip %</h2>
+            <div class="calculator-percentage-values">
+              <input type="button" value="5&percnt;" class="calculator-percentage-value" />
+              <input type="button" value="10&percnt;" class="calculator-percentage-value" />
+              <input type="button" value="15&percnt;" class="calculator-percentage-value" />
+              <input type="button" value="25&percnt;" class="calculator-percentage-value" />
+              <input type="button" value="50&percnt;" class="calculator-percentage-value" />
+              <input type="number" name="txtcustomvalue" placeholder="Custom" class="calculator-percentage-value" />
+            </div>
+          </div>
+          <div class="calculator-count-people">
+            <!-- Crear con before la img -->
+            <h2 class="u-title">Number of People</h2>
+            <div class="calculator-control flex flex-ai-c">
+              <img src="./images/icon-person.svg" alt="Dollar" />
+              <input type="number" name="txtpeople" id="txtpeople" />
+            </div>
+          </div>
+        </div>
+        <div class="calculator-outputs mb-default">
+          <div class="calculator-results">
+            <div class="calculator-result flex flex-ai-c flex-jc-sb">
+              <h3>Tip Amount <span>/ person</span></h3>
+              <p>&dollar;4.27</p>
+            </div>
+            <div class="calculator-result flex flex-ai-c flex-jc-sb">
+              <h3>Total <span>/ person</span></h3>
+              <p>&dollar;32.79</p>
+            </div>
+            <div class="calculator-reset">
+              <button type="button">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
