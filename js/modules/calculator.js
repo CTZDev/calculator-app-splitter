@@ -13,7 +13,7 @@ export default function calculator() {
   const $reset = d.getElementById("btnreset");
 
   //Botons Tip (Category) and TxtCustomValue
-  const $category = d.querySelectorAll("[data-tip]"),
+  const $categoryTip = d.querySelectorAll("[data-tip]"),
     $customValue = d.getElementById("txtcustomvalue");
 
   //Crear elementos span - mensajes de error
@@ -29,7 +29,7 @@ export default function calculator() {
       const resultBill = validityBill($target);
 
       //Mensajes de error
-      contextInputs(resultPos, resultBill, $txtAmountBill);
+      contextInputs(resultPos, resultBill, $txtAmountBill, $txtQuantityPeople);
     }
 
     //Validar el input de entrada de personas , solo enteros
@@ -38,28 +38,47 @@ export default function calculator() {
       const resultInteger = validityIntegers($target);
 
       //Mensajes de error
-      contextInputs(resultPos, resultInteger, $txtQuantityPeople);
+      contextInputs(resultPos, resultInteger, $txtQuantityPeople, $txtAmountBill);
     }
   });
 
-  //Optimización del codigo del input - Validaciones
-  const contextInputs = (resPos, resContext, context) => {
+  //Optimización del codigo del input - Validaciones , activación de elementos desactivados a activados.
+  const contextInputs = (resPos, resContext, context, contextOp) => {
     if (resPos !== true || resContext !== true) {
       $span.textContent = resPos || resContext;
       searchInputElement(context).appendChild($span);
+      if ((context.value === "" && contextOp.value === "") || context.value === "" || contextOp.value === "") {
+        $categoryTip.forEach((tip) => (tip.disabled = true));
+        $customValue.disabled = true;
+      }
     } else {
       $span.textContent = "";
+      if (context.value !== "" && contextOp.value !== "") {
+        $categoryTip.forEach((tip) => (tip.disabled = false));
+        $customValue.disabled = false;
+      }
     }
   };
 
   //Interacción con los botones (porcentajes)
-  d.addEventListener("click", (e) => {});
+  $categoryTip.forEach((tip) => {
+    tip.addEventListener("click", (e) => {
+      const $bill = $txtAmountBill.value,
+        $people = $txtQuantityPeople.value;
+
+      //Id de los Span creados , crear vinculo al crear un span
+      let percentageTip = e.target.value.split("%")[0];
+      const productBillWithTip = (percentageTip / 100) * $bill;
+      const amount = (productBillWithTip / $people).toFixed(2);
+      const totalPerson = ((Number($bill) + productBillWithTip) / Number($people)).toFixed(2);
+    });
+  });
 }
 
 //Permite validar el ingreso de numeros positivos
 const validityNumbersPositive = (number = undefined) => {
   if (parseInt(number) === 0) return "Can´'t be Zero";
-  if (!number) return "Empty field, not (- ó +)";
+  if (!number || number === "") return "Empty field, not (- ó +)";
   if (Math.sign(number) === -1) return "Only positive numbers";
   return true;
 };

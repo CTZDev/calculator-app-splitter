@@ -217,6 +217,17 @@ body {
 .calculator-percentage-value:last-child:hover {
   border: 1px solid var(--clr-strongyan);
 }
+.calculator-percentage-value:last-child:disabled {
+  border: 1px solid transparent;
+  opacity: 0.6;
+  cursor: default;
+}
+.calculator-percentage-value:disabled:not(:last-child) {
+  color: var(--clr-white);
+  background-color: var(--clr-darckcyan);
+  cursor: default;
+  opacity: 0.6;
+}
 .calculator-people-header > span {
   margin-bottom: 0.8rem;
   font-size: 0.55em;

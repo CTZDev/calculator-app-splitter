@@ -70,6 +70,19 @@ body {
 
       &:last-child {
         @include focusInput;
+
+        &:disabled {
+          border: 1px solid transparent;
+          opacity: 0.6;
+          cursor: default;
+        }
+      }
+
+      &:disabled:not(:last-child) {
+        color: var(--clr-white);
+        background-color: var(--clr-darckcyan);
+        cursor: default;
+        opacity: 0.6;
       }
     }
   }
