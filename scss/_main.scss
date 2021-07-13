@@ -63,7 +63,8 @@ body {
       font-family: var(--font-family);
       transition: color 200ms ease, background-color 200ms ease;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: var(--clr-darckcyan);
         background-color: #9fe8df;
       }

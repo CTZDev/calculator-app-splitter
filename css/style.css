@@ -173,7 +173,7 @@ body {
   letter-spacing: 1px;
   border: 1px solid transparent;
 }
-.calculator-control input[type=text]:hover {
+.calculator-control input[type=text]:hover, .calculator-control input[type=text]:focus {
   border: 1px solid var(--clr-strongyan);
 }
 .calculator-percentage-values {
@@ -202,7 +202,7 @@ body {
   font-family: var(--font-family);
   transition: color 200ms ease, background-color 200ms ease;
 }
-.calculator-percentage-value:hover {
+.calculator-percentage-value:hover, .calculator-percentage-value:focus {
   color: var(--clr-darckcyan);
   background-color: #9fe8df;
 }
@@ -214,7 +214,7 @@ body {
   letter-spacing: 1px;
   border: 1px solid transparent;
 }
-.calculator-percentage-value:last-child:hover {
+.calculator-percentage-value:last-child:hover, .calculator-percentage-value:last-child:focus {
   border: 1px solid var(--clr-strongyan);
 }
 .calculator-percentage-value:last-child:disabled {
