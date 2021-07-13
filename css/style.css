@@ -67,6 +67,9 @@ a {
 .flex-ai-c {
   align-items: center;
 }
+.flex-fd-c {
+  flex-direction: column;
+}
 
 .mb-default {
   margin-bottom: 2.5rem;
@@ -86,6 +89,7 @@ a {
   --clr-light-grayishcyan-a: hsl(185, 41%, 84%);
   --clr-light-grayishcyan-b: hsl(189, 41%, 97%);
   --clr-white: hsl(0, 0%, 100%);
+  --clr-error: rgb(211, 55, 55);
   --font-sm: 1rem;
   --font-normal: 1.5rem;
   --font-lg: 2rem;
@@ -108,43 +112,69 @@ a {
   display: block;
 }
 
-main {
+body {
+  min-height: 100vh;
   background-color: var(--clr-light-grayishcyan-a);
 }
 
 .calculator {
   padding: 2rem;
-  padding-bottom: 0;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   background-color: var(--clr-white);
+  width: fit-content;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 48em) {
+  .calculator {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
 }
 .calculator-control {
   position: relative;
 }
-.calculator-control img {
+.calculator-control img,
+.calculator-control span {
   display: inline-block;
   position: absolute;
   left: 1rem;
+  color: var(--clr-dark-grayishcyan-a);
 }
-.calculator-control :is(input[type=number], input[type=text]) {
+.calculator-control input[type=number] {
   color: var(--clr-darckcyan);
   font-size: var(--font-normal);
   font-weight: bold;
   font-family: var(--font-family);
   width: 100%;
-  max-width: 100%;
   background-color: #f3f8fb;
   border: none;
   outline: none;
   border-radius: 4px;
   padding: 0.4rem 1rem;
   text-align: right;
+  background-color: #f3f8fb;
+  color: var(--clr-dark-grayishcyan-a);
+  text-align: right;
+  transition: border 200ms ease;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+.calculator-control input[type=number]:hover {
+  border: 1px solid var(--clr-strongyan);
 }
 .calculator-percentage-values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.625rem, 9.25rem));
+  grid-template-columns: repeat(2, minmax(9.375rem, 11.5rem));
   gap: 0.65rem;
+}
+@media only screen and (min-width: 48em) {
+  .calculator-percentage-values {
+    grid-template-columns: repeat(3, minmax(6.625rem, 8.75rem));
+  }
 }
 .calculator-percentage-value {
   text-align: center;
@@ -164,7 +194,7 @@ main {
 }
 .calculator-percentage-value:hover {
   color: var(--clr-darckcyan);
-  background-color: var(--clr-strongyan);
+  background-color: #9fe8df;
 }
 .calculator-percentage-value:last-child {
   background-color: #f3f8fb;
@@ -172,17 +202,33 @@ main {
   text-align: right;
   transition: border 200ms ease;
   letter-spacing: 1px;
+  border: 1px solid transparent;
 }
 .calculator-percentage-value:last-child:hover {
   border: 1px solid var(--clr-strongyan);
+}
+.calculator-people-header > span {
+  margin-bottom: 0.8rem;
+  font-size: 0.55em;
+  color: var(--clr-error);
 }
 .calculator-results {
   padding: 2.5rem 1.5rem 1.5rem;
   background-color: var(--clr-darckcyan);
   border-radius: 6px;
 }
+@media only screen and (min-width: 48em) {
+  .calculator-results {
+    height: 100%;
+  }
+}
 .calculator-result {
   margin-bottom: 2rem;
+}
+@media only screen and (min-width: 48em) {
+  .calculator-result {
+    margin-bottom: 2.5rem;
+  }
 }
 .calculator-result h3 {
   color: var(--clr-white);
@@ -198,10 +244,15 @@ main {
 }
 .calculator-result p {
   color: var(--clr-strongyan);
-  font-size: var(--font-lg);
   font-weight: bold;
+  font-size: 2.5rem;
 }
-.calculator-reset button {
+@media only screen and (min-width: 48em) {
+  .calculator-result p {
+    font-size: 3rem;
+  }
+}
+.calculator-reset input[type=button] {
   width: 100%;
   text-transform: uppercase;
   background-color: var(--clr-strongyan);
@@ -212,6 +263,16 @@ main {
   border: none;
   outline: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+.calculator-reset input[type=button]:hover {
+  background-color: #9fe8df;
+}
+.calculator-reset input[type=button]:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background-color: var(--clr-strongyan);
 }
 
 /*# sourceMappingURL=style.css.map */

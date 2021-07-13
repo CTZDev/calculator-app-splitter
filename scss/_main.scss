@@ -1,33 +1,50 @@
-main {
+body {
+  min-height: 100vh;
   background-color: var(--clr-light-grayishcyan-a);
 }
 
 .calculator {
   padding: 2rem;
-  padding-bottom: 0;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   background-color: var(--clr-white);
+  width: fit-content;
+  margin: 0 auto;
+
+  @include mq(small) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
 
   &-control {
     position: relative;
 
-    img {
+    img,
+    span {
       display: inline-block;
       position: absolute;
       left: 1rem;
+      color: var(--clr-dark-grayishcyan-a);
     }
 
-    :is(input[type="number"], input[type="text"]) {
-      @include inputNumber();
+    input[type="number"] {
+      @include inputNumber;
+      @include focusInput;
     }
   }
 
   &-percentage {
     &-values {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(5.625rem, 9.25rem));
+      grid-template-columns: repeat(2, minmax(9.375rem, 11.5rem));
       gap: 0.65rem;
+
+      @include mq(small) {
+        grid-template-columns: repeat(3, minmax(6.625rem, 8.75rem));
+      }
     }
 
     &-value {
@@ -48,20 +65,20 @@ main {
 
       &:hover {
         color: var(--clr-darckcyan);
-        background-color: var(--clr-strongyan);
+        background-color: #9fe8df;
       }
 
       &:last-child {
-        background-color: #f3f8fb;
-        color: var(--clr-dark-grayishcyan-a);
-        text-align: right;
-        transition: border 200ms ease;
-        letter-spacing: 1px;
-
-        &:hover {
-          border: 1px solid var(--clr-strongyan);
-        }
+        @include focusInput;
       }
+    }
+  }
+
+  &-people-header {
+    > span {
+      margin-bottom: 0.8rem;
+      font-size: 0.55em;
+      color: var(--clr-error);
     }
   }
 
@@ -69,10 +86,18 @@ main {
     padding: 2.5rem 1.5rem 1.5rem;
     background-color: var(--clr-darckcyan);
     border-radius: 6px;
+
+    @include mq(small) {
+      height: 100%;
+    }
   }
 
   &-result {
     margin-bottom: 2rem;
+
+    @include mq(small) {
+      margin-bottom: 2.5rem;
+    }
 
     h3 {
       color: var(--clr-white);
@@ -90,13 +115,17 @@ main {
 
     p {
       color: var(--clr-strongyan);
-      font-size: var(--font-lg);
       font-weight: bold;
+      font-size: 2.5rem;
+
+      @include mq(small) {
+        font-size: 3rem;
+      }
     }
   }
 
   &-reset {
-    button {
+    input[type="button"] {
       width: 100%;
       text-transform: uppercase;
       background-color: var(--clr-strongyan);
@@ -107,6 +136,18 @@ main {
       border: none;
       outline: none;
       border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 200ms ease-in-out;
+
+      &:hover {
+        background-color: #9fe8df;
+      }
+
+      &:disabled {
+        opacity: 0.35;
+        cursor: default;
+        background-color: var(--clr-strongyan);
+      }
     }
   }
 }

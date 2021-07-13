@@ -70,6 +70,10 @@ a {
   &-ai-c {
     align-items: center;
   }
+
+  &-fd-c {
+    flex-direction: column;
+  }
 }
 
 //Margins - sections
@@ -81,5 +85,5 @@ a {
 .u-title {
   color: var(--clr-dark-grayishcyan-a);
   font-size: 1.1rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }

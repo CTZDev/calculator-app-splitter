@@ -21,7 +21,7 @@
             <h2 class="u-title">Bill</h2>
             <div class="calculator-control flex flex-ai-c">
               <img src="./images/icon-dollar.svg" alt="Dollar" />
-              <input type="number" name="txtbill" id="txtbill" />
+              <input type="number" name="txtbill" id="txtbill" placeholder="0" />
             </div>
           </div>
           <div class="calculator-percentage mb-default">
@@ -35,27 +35,31 @@
               <input type="number" name="txtcustomvalue" placeholder="Custom" class="calculator-percentage-value" />
             </div>
           </div>
-          <div class="calculator-count-people">
-            <!-- Crear con before la img -->
-            <h2 class="u-title">Number of People</h2>
+          <div class="calculator-people">
+            <div class="calculator-people-header flex flex-ai-c flex-jc-sb">
+              <h2 class="u-title">Number of People</h2>
+              <!-- <span id="peopleMessage">Can't Be Zero</span> -->
+            </div>
             <div class="calculator-control flex flex-ai-c">
               <img src="./images/icon-person.svg" alt="Dollar" />
-              <input type="number" name="txtpeople" id="txtpeople" />
+              <input type="number" name="txtpeople" id="txtpeople" placeholder="0" />
             </div>
           </div>
         </div>
-        <div class="calculator-outputs mb-default">
-          <div class="calculator-results">
-            <div class="calculator-result flex flex-ai-c flex-jc-sb">
-              <h3>Tip Amount <span>/ person</span></h3>
-              <p>&dollar;4.27</p>
-            </div>
-            <div class="calculator-result flex flex-ai-c flex-jc-sb">
-              <h3>Total <span>/ person</span></h3>
-              <p>&dollar;32.79</p>
+        <div class="calculator-outputs">
+          <div class="calculator-results flex flex-fd-c flex-jc-sb">
+            <div class="calculator-result-context">
+              <div class="calculator-result flex flex-ai-c flex-jc-sb">
+                <h3>Tip Amount <span>/ person</span></h3>
+                <p>&dollar;<span>0.00</span></p>
+              </div>
+              <div class="calculator-result flex flex-ai-c flex-jc-sb">
+                <h3>Total <span>/ person</span></h3>
+                <p>&dollar;<span>0.00</span></p>
+              </div>
             </div>
             <div class="calculator-reset">
-              <button type="button">Reset</button>
+              <input type="button" value="Reset" disabled />
             </div>
           </div>
         </div>

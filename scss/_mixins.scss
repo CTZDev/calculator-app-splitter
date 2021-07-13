@@ -1,11 +1,10 @@
-//Mixin de inputs - default position before
+//Mixin de inputs - default input
 @mixin inputNumber {
   color: var(--clr-darckcyan);
   font-size: var(--font-normal);
   font-weight: bold;
   font-family: var(--font-family);
   width: 100%;
-  max-width: 100%;
   background-color: #f3f8fb;
   border: none;
   outline: none;
@@ -14,8 +13,33 @@
   text-align: right;
 }
 
-@mixin tip {
+//Focus de todos los Input
+@mixin focusInput {
+  background-color: #f3f8fb;
+  color: var(--clr-dark-grayishcyan-a);
+  text-align: right;
+  transition: border 200ms ease;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid var(--clr-strongyan);
+  }
+
+  // &:valid {
+  //   border: 1px var(--clr-strongyan);
+  // }
+
+  // &:invalid {
+  //   border: 1px solid var(--clr-error);
+  // }
 }
+
+$breakpoints: (
+  small: 48em,
+  medium: 64em,
+  large: 90em,
+);
 
 @mixin mq($key) {
   $size: map-get($breakpoints, $key);
