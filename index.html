@@ -20,11 +20,15 @@
           <div class="calculator-header mb-default">
             <div class="calculator-people-header flex flex-ai-c flex-jc-sb">
               <h2 class="u-title">Bill</h2>
-              <!-- <span id="billMessage">Can't Be Zero</span> -->
             </div>
             <div class="calculator-control flex flex-ai-c">
               <img src="./images/icon-dollar.svg" alt="Dollar" />
-              <input type="number" name="txtbill" id="txtbill" placeholder="0" />
+              <input
+                type="text"
+                id="txtbill"
+                placeholder="0"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
             </div>
           </div>
           <div class="calculator-percentage mb-default">
@@ -35,17 +39,30 @@
               <input type="button" value="15&percnt;" class="calculator-percentage-value" data-tip disabled />
               <input type="button" value="25&percnt;" class="calculator-percentage-value" data-tip disabled />
               <input type="button" value="50&percnt;" class="calculator-percentage-value" data-tip disabled />
-              <input type="number" name="txtcustomvalue" id="txtcustomvalue" placeholder="Custom" class="calculator-percentage-value" disabled />
+              <input
+                type="text"
+                id="txtcustomvalue"
+                class="calculator-percentage-value"
+                maxlength="4"
+                placeholder="Custom"
+                disabled
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
             </div>
           </div>
           <div class="calculator-people">
             <div class="calculator-people-header flex flex-ai-c flex-jc-sb">
               <h2 class="u-title">Number of People</h2>
-              <!-- <span id="peopleMessage">Can't Be Zero</span> -->
             </div>
             <div class="calculator-control flex flex-ai-c">
               <img src="./images/icon-person.svg" alt="Dollar" />
-              <input type="number" name="txtpeople" id="txtpeople" placeholder="0" />
+              <input
+                type="text"
+                id="txtpeople"
+                placeholder="0"
+                maxlength="3"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
             </div>
           </div>
         </div>

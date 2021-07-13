@@ -154,7 +154,7 @@ body {
   left: 1rem;
   color: var(--clr-dark-grayishcyan-a);
 }
-.calculator-control input[type=number] {
+.calculator-control input[type=text] {
   color: var(--clr-darckcyan);
   font-size: var(--font-normal);
   font-weight: bold;
@@ -173,7 +173,7 @@ body {
   letter-spacing: 1px;
   border: 1px solid transparent;
 }
-.calculator-control input[type=number]:hover {
+.calculator-control input[type=text]:hover {
   border: 1px solid var(--clr-strongyan);
 }
 .calculator-percentage-values {

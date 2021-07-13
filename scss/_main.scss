@@ -30,7 +30,7 @@ body {
       color: var(--clr-dark-grayishcyan-a);
     }
 
-    input[type="number"] {
+    input[type="text"] {
       @include inputNumber;
       @include focusInput;
     }
