@@ -18,7 +18,10 @@
       <section class="calculator">
         <div class="calculator-inputs mb-default">
           <div class="calculator-header mb-default">
-            <h2 class="u-title">Bill</h2>
+            <div class="calculator-people-header flex flex-ai-c flex-jc-sb">
+              <h2 class="u-title">Bill</h2>
+              <!-- <span id="billMessage">Can't Be Zero</span> -->
+            </div>
             <div class="calculator-control flex flex-ai-c">
               <img src="./images/icon-dollar.svg" alt="Dollar" />
               <input type="number" name="txtbill" id="txtbill" placeholder="0" />
@@ -27,12 +30,12 @@
           <div class="calculator-percentage mb-default">
             <h2 class="u-title">Select Tip %</h2>
             <div class="calculator-percentage-values">
-              <input type="button" value="5&percnt;" class="calculator-percentage-value" />
-              <input type="button" value="10&percnt;" class="calculator-percentage-value" />
-              <input type="button" value="15&percnt;" class="calculator-percentage-value" />
-              <input type="button" value="25&percnt;" class="calculator-percentage-value" />
-              <input type="button" value="50&percnt;" class="calculator-percentage-value" />
-              <input type="number" name="txtcustomvalue" placeholder="Custom" class="calculator-percentage-value" />
+              <input type="button" value="5&percnt;" class="calculator-percentage-value" data-tip />
+              <input type="button" value="10&percnt;" class="calculator-percentage-value" data-tip />
+              <input type="button" value="15&percnt;" class="calculator-percentage-value" data-tip />
+              <input type="button" value="25&percnt;" class="calculator-percentage-value" data-tip />
+              <input type="button" value="50&percnt;" class="calculator-percentage-value" data-tip />
+              <input type="number" name="txtcustomvalue" id="txtcustomvalue" placeholder="Custom" class="calculator-percentage-value" />
             </div>
           </div>
           <div class="calculator-people">
@@ -51,19 +54,20 @@
             <div class="calculator-result-context">
               <div class="calculator-result flex flex-ai-c flex-jc-sb">
                 <h3>Tip Amount <span>/ person</span></h3>
-                <p>&dollar;<span>0.00</span></p>
+                <p>&dollar;<span id="amount">0.00</span></p>
               </div>
               <div class="calculator-result flex flex-ai-c flex-jc-sb">
                 <h3>Total <span>/ person</span></h3>
-                <p>&dollar;<span>0.00</span></p>
+                <p>&dollar;<span id="total">0.00</span></p>
               </div>
             </div>
             <div class="calculator-reset">
-              <input type="button" value="Reset" disabled />
+              <input type="button" id="btnreset" value="Reset" disabled />
             </div>
           </div>
         </div>
       </section>
     </main>
+    <script src="./js/script.js" type="module"></script>
   </body>
 </html>
